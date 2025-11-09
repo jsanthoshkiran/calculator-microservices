@@ -1,0 +1,185 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-gateway
+  namespace: default
+  labels:
+    app: calculator-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: calculator-gateway
+  template:
+    metadata:
+      labels:
+        app: calculator-gateway
+    spec:
+      containers:
+      - name: gateway
+        image: yourusername/calculator-gateway:latest
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: ADD_SERVICE_URL
+          value: "http://calculator-add-service:3001"
+        - name: SUB_SERVICE_URL
+          value: "http://calculator-subtract-service:3002"
+        - name: MUL_SERVICE_URL
+          value: "http://calculator-multiply-service:3003"
+        - name: DIV_SERVICE_URL
+          value: "http://calculator-divide-service:3004"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-add
+  labels:
+    app: calculator-add
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: calculator-add
+  template:
+    metadata:
+      labels:
+        app: calculator-add
+    spec:
+      containers:
+      - name: add-service
+        image: yourusername/calculator-add:latest
+        ports:
+        - containerPort: 3001
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3001
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-subtract
+  labels:
+    app: calculator-subtract
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: calculator-subtract
+  template:
+    metadata:
+      labels:
+        app: calculator-subtract
+    spec:
+      containers:
+      - name: subtract-service
+        image: yourusername/calculator-subtract:latest
+        ports:
+        - containerPort: 3002
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3002
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-multiply
+  labels:
+    app: calculator-multiply
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator-multiply
+  template:
+    metadata:
+      labels:
+        app: calculator-multiply
+    spec:
+      containers:
+      - name: multiply-service
+        image: yourusername/calculator-multiply:latest
+        ports:
+        - containerPort: 3003
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3003
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-divide
+  labels:
+    app: calculator-divide
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator-divide
+  template:
+    metadata:
+      labels:
+        app: calculator-divide
+    spec:
+      containers:
+      - name: divide-service
+        image: yourusername/calculator-divide:latest
+        ports:
+        - containerPort: 3004
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3004
+          initialDelaySeconds: 5
+          periodSeconds: 10
