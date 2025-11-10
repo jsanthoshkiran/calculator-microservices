@@ -91,34 +91,34 @@ curl "http://localhost:3000/divide?a=20&b=4"
 
 ```powershell
 # Gateway
-docker build -t yourusername/calculator-gateway:v1 ./gateway
-docker push yourusername/calculator-gateway:v1
+docker build -t jsanthoshkiran/calculator-gateway:v1 ./gateway
+docker push jsanthoshkiran/calculator-gateway:v1
 
 # Add Service
-docker build -t yourusername/calculator-add:v1 ./add-service
-docker push yourusername/calculator-add:v1
+docker build -t jsanthoshkiran/calculator-add:v1 ./add-service
+docker push jsanthoshkiran/calculator-add:v1
 
 # Subtract Service
-docker build -t yourusername/calculator-subtract:v1 ./subtract-service
-docker push yourusername/calculator-subtract:v1
+docker build -t jsanthoshkiran/calculator-subtract:v1 ./subtract-service
+docker push jsanthoshkiran/calculator-subtract:v1
 
 # Multiply Service
-docker build -t yourusername/calculator-multiply:v1 ./multiply-service
-docker push yourusername/calculator-multiply:v1
+docker build -t jsanthoshkiran/calculator-multiply:v1 ./multiply-service
+docker push jsanthoshkiran/calculator-multiply:v1
 
 # Divide Service
-docker build -t yourusername/calculator-divide:v1 ./divide-service
-docker push yourusername/calculator-divide:v1
+docker build -t jsanthoshkiran/calculator-divide:v1 ./divide-service
+docker push jsanthoshkiran/calculator-divide:v1
 ```
 
 ### Running Containers
 
 ```powershell
-docker run -p 3001:3001 yourusername/calculator-add:v1
-docker run -p 3002:3002 yourusername/calculator-subtract:v1
-docker run -p 3003:3003 yourusername/calculator-multiply:v1
-docker run -p 3004:3004 yourusername/calculator-divide:v1
-docker run -p 3000:3000 -e ADD_SERVICE_URL=http://host.docker.internal:3001 yourusername/calculator-gateway:v1
+docker run -p 3001:3001 jsanthoshkiran/calculator-add:v1
+docker run -p 3002:3002 jsanthoshkiran/calculator-subtract:v1
+docker run -p 3003:3003 jsanthoshkiran/calculator-multiply:v1
+docker run -p 3004:3004 jsanthoshkiran/calculator-divide:v1
+docker run -p 3000:3000 -e ADD_SERVICE_URL=http://host.docker.internal:3001 jsanthoshkiran/calculator-gateway:v1
 ```
 
 ## Kubernetes
