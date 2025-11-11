@@ -19,7 +19,7 @@ pipeline {
       steps {
         echo 'Step 2: Building Docker images...'
         script {
-          sh '''
+          bat '''
             docker build -t ${DOCKER_HUB_USR}/${REPO_NAME}-gateway:${IMAGE_TAG} ./gateway
             docker build -t ${DOCKER_HUB_USR}/${REPO_NAME}-add:${IMAGE_TAG} ./add-service
             docker build -t ${DOCKER_HUB_USR}/${REPO_NAME}-subtract:${IMAGE_TAG} ./subtract-service
@@ -32,7 +32,7 @@ pipeline {
       steps {
         echo 'Step 3: Pushing to Docker Hub...'
         script {
-          sh '''
+          bat '''
             docker login -u ${DOCKER_HUB_USR} -p ${DOCKER_HUB_PSW}
             docker push ${DOCKER_HUB_USR}/${REPO_NAME}-gateway:${IMAGE_TAG}
             docker push ${DOCKER_HUB_USR}/${REPO_NAME}-add:${IMAGE_TAG}
