@@ -44,7 +44,8 @@ pipeline {
 
     stage('Verify') {
       steps {
-        echo 'Pipeline completed successfully! Test'
+        echo 'Pipeline completed successfully!'
+        echo 'Triggering code verification...'
       }
     }
   }
