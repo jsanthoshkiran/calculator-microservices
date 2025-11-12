@@ -172,7 +172,3 @@ Jenkins pipeline automatically:
 - [x] CI/CD pipeline automation
 - [x] GitHub version control workflow
 - [x] Production-ready deployment
-
-## License
-
-MIT - DevOps Workshop Project
