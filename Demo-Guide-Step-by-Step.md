@@ -119,7 +119,7 @@ mkdir gateway add-service subtract-service multiply-service divide-service
 **3. Create Initial Files**
 ```powershell
 # Create placeholder for gateway
-echo "Gateway setup" > gateway/server.js
+echo "Gateway setup" >> gateway/server.js
 
 # Stage changes
 git add gateway/
@@ -139,8 +139,7 @@ git log --oneline
 **4. Push to Remote**
 ```powershell
 # Push feature branch to GitHub
-git push origin feature/setup-gateway
-
+git push origin feature/setup-gateway (or) git push --set-upstream origin feature/setup-gateway
 # Output shows: remote: Create a pull request for 'feature/setup-gateway'
 ```
 
