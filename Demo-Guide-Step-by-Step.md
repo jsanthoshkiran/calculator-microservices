@@ -179,6 +179,10 @@ docker --version
 # Check Docker daemon status
 docker info
 # Output: Should show running containers, images, etc.
+
+docker images | grep "calculator" #Gitbash
+docker images | Select-String -Pattern "calculator" #Powershell
+# Output: Should show running containers, images, etc.
 ```
 
 **2. Create Gateway Dockerfile**
