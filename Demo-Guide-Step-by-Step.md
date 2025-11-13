@@ -93,7 +93,7 @@ This guide provides step-by-step instructions for demonstrating each concept liv
 cd D:\dev  # or your preferred location
 
 # Clone your repository
-git clone -b feature/jenkins-setup https://github.com/jsanthoshkiran/calculator-microservices.git
+git clone https://github.com/jsanthoshkiran/calculator-microservices.git
 
 # Navigate into directory
 cd calculator-microservices
