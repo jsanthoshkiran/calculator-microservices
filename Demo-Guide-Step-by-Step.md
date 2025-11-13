@@ -99,7 +99,7 @@ git clone -b feature/jenkins-setup https://github.com/jsanthoshkiran/calculator-
 cd calculator-microservices
 
 # Verify remote
-git remote -v
+git remote -v https://github.com/YOUR-USERNAME/calculator-microservices.git
 # Output should show origin pointing to your repo
 ```
 
