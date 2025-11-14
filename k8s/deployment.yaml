@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: jsanthoshkiran/calculator-gateway:5
+        image: jsanthoshkiran/calculator-gateway:latest
         ports:
         - containerPort: 3000
           name: http
@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
       - name: add-service
-        image: jsanthoshkiran/calculator-add:5
+        image: jsanthoshkiran/calculator-add:latest
         ports:
         - containerPort: 3001
         resources:
@@ -97,7 +97,7 @@ spec:
     spec:
       containers:
       - name: subtract-service
-        image: jsanthoshkiran/calculator-subtract:5
+        image: jsanthoshkiran/calculator-subtract:latest
         ports:
         - containerPort: 3002
         resources:
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: multiply-service
-        image: jsanthoshkiran/calculator-multiply:5
+        image: jsanthoshkiran/calculator-multiply:latest
         ports:
         - containerPort: 3003
         resources:
@@ -167,7 +167,7 @@ spec:
     spec:
       containers:
       - name: divide-service
-        image: jsanthoshkiran/calculator-divide:5
+        image: jsanthoshkiran/calculator-divide:latest
         ports:
         - containerPort: 3004
         resources:
