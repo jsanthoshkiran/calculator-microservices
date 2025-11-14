@@ -163,6 +163,7 @@ Jenkins pipeline automatically:
 2. Runs tests
 3. Pushes to Docker Hub
 4. Deploys to Kubernetes
+--- For testing a trigger
 
 ## Learning Outcomes
 
