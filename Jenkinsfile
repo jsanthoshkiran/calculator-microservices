@@ -3,7 +3,8 @@ pipeline {
 
     environment {
         REPO_NAME = 'calculator-microservices'
-        IMAGE_TAG = "${env.BUILD_NUMBER}" // Correct Jenkins variable reference
+        IMAGE_TAG = "latest" // Correct Jenkins variable reference
+        // IMAGE_TAG = "${env.BUILD_NUMBER}" // Correct Jenkins variable reference
     }
 
     stages {
